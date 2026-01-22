@@ -7,27 +7,38 @@ export default class SectionHeadline extends React.Component<ISectionHeadlinePro
     const {
       headlineText,
       barColor,
+      fontColor,
+      fontSize,
       leftPadding,
       barWidth,
       barHeightExtension
     } = this.props;
 
     // Calculate bar styles with dynamic values
+    // Use 0 for height extension when value is 0 to avoid visual glitch
+    const heightExt = barHeightExtension || 0;
     const barStyle: React.CSSProperties = {
       backgroundColor: barColor || '#ad3a39',
       width: `${barWidth || 6}px`,
-      marginTop: `-${barHeightExtension || 8}px`,
-      marginBottom: `-${barHeightExtension || 8}px`
+      marginTop: heightExt > 0 ? `-${heightExt}px` : '0',
+      marginBottom: heightExt > 0 ? `-${heightExt}px` : '0',
+      paddingTop: heightExt > 0 ? `${heightExt}px` : '0',
+      paddingBottom: heightExt > 0 ? `${heightExt}px` : '0'
     };
 
     const containerStyle: React.CSSProperties = {
       paddingLeft: `${leftPadding || 0}px`
     };
 
+    const textStyle: React.CSSProperties = {
+      color: fontColor || '#000000',
+      fontSize: `${fontSize || 28}px`
+    };
+
     return (
       <div className={styles.sectionHeadline} style={containerStyle}>
         <span className={styles.accentBar} style={barStyle} aria-hidden="true" />
-        <h2 className={styles.headlineText}>{headlineText || 'Section Headline'}</h2>
+        <h2 className={styles.headlineText} style={textStyle}>{headlineText || 'Section Headline'}</h2>
       </div>
     );
   }

@@ -3,7 +3,7 @@
   "solution": {
     "name": "m-365-spfx-section-headline-client-side-solution",
     "id": "03057c51-dae8-48e0-bb27-b8a1972e2d97",
-    "version": "1.0.0.0",
+    "version": "1.0.1.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,

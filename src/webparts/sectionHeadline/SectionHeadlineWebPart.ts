@@ -17,6 +17,8 @@ import { ISectionHeadlineProps } from './components/ISectionHeadlineProps';
 export interface ISectionHeadlineWebPartProps {
   headlineText: string;
   barColor: string;
+  fontColor: string;
+  fontSize: number;
   leftPadding: number;
   barWidth: number;
   barHeightExtension: number;
@@ -30,6 +32,8 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
       {
         headlineText: this.properties.headlineText,
         barColor: this.properties.barColor,
+        fontColor: this.properties.fontColor,
+        fontSize: this.properties.fontSize,
         leftPadding: this.properties.leftPadding,
         barWidth: this.properties.barWidth,
         barHeightExtension: this.properties.barHeightExtension
@@ -46,6 +50,12 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
     }
     if (!this.properties.barColor) {
       this.properties.barColor = '#ad3a39';
+    }
+    if (!this.properties.fontColor) {
+      this.properties.fontColor = '#000000';
+    }
+    if (this.properties.fontSize === undefined) {
+      this.properties.fontSize = 28;
     }
     if (this.properties.leftPadding === undefined) {
       this.properties.leftPadding = 0;
@@ -94,6 +104,26 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
                 PropertyPaneTextField('headlineText', {
                   label: 'Headline Text'
                 }),
+                PropertyFieldColorPicker('fontColor', {
+                  label: 'Font Color',
+                  selectedColor: this.properties.fontColor,
+                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
+                  properties: this.properties,
+                  disabled: false,
+                  debounce: 200,
+                  isHidden: false,
+                  alphaSliderHidden: true,
+                  style: PropertyFieldColorPickerStyle.Inline,
+                  iconName: 'FontColor',
+                  key: 'fontColorFieldId'
+                }),
+                PropertyPaneSlider('fontSize', {
+                  label: 'Font Size (px)',
+                  min: 10,
+                  max: 40,
+                  step: 1,
+                  showValue: true
+                }),
                 PropertyFieldColorPicker('barColor', {
                   label: 'Accent Bar Color',
                   selectedColor: this.properties.barColor,
@@ -109,9 +139,9 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
                 }),
                 PropertyPaneSlider('leftPadding', {
                   label: 'Left Padding (px)',
-                  min: 0,
-                  max: 100,
-                  step: 4,
+                  min: 1,
+                  max: 20,
+                  step: 1,
                   showValue: true
                 }),
                 PropertyPaneSlider('barWidth', {
@@ -123,9 +153,9 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
                 }),
                 PropertyPaneSlider('barHeightExtension', {
                   label: 'Bar Height Extension (px)',
-                  min: 0,
+                  min: 1,
                   max: 30,
-                  step: 2,
+                  step: 1,
                   showValue: true
                 })
               ]
