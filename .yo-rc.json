@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "m365-spfx-section-headline",
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "SectionHeadline",
+    "componentDescription": "Section headline with configurable accent bar",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "25.3.0",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "m-365-spfx-section-headline",
+    "libraryId": "03057c51-dae8-48e0-bb27-b8a1972e2d97",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "m365-spfx-section-headline description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}

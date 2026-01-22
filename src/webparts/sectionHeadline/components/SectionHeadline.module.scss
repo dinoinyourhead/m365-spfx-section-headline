@@ -1,0 +1,28 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.sectionHeadline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  color: "[theme:bodyText, default: #323130]";
+  color: var(--bodyText);
+}
+
+.accentBar {
+  display: block;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 2px;
+  /* Width, margins, and background-color are set inline */
+}
+
+.headlineText {
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: "[theme:bodyText, default: #323130]";
+  color: var(--bodyText);
+}
