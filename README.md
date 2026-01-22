@@ -1,73 +1,60 @@
-# m-365-spfx-section-headline
+# M365 SPFx Section Headline
 
-## Summary
+A SharePoint Framework (SPFx) web part that displays a section headline with a configurable vertical accent bar on the left side.
 
-Short summary on functionality and used technologies.
-
-[picture of the solution in action, if possible]
-
-## Used SharePoint Framework Version
-
-![version](https://img.shields.io/badge/version-1.21.1-green.svg)
-
-## Applies to
-
-- [SharePoint Framework](https://aka.ms/spfx)
-- [Microsoft 365 tenant](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
-
-> Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
-
-## Prerequisites
-
-> Any special pre-requisites?
-
-## Solution
-
-| Solution    | Author(s)                                               |
-| ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
-
-## Version history
-
-| Version | Date             | Comments        |
-| ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
-
-## Disclaimer
-
-**THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
-
-## Minimal Path to Awesome
-
-- Clone this repository
-- Ensure that you are at the solution folder
-- in the command-line run:
-  - **npm install**
-  - **gulp serve**
-
-> Include any additional steps as needed.
+![Section Headline Example](docs/example.png)
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
+- **Headline Text**: Configurable section headline
+- **Accent Bar**: Vertical bar on the left side of the headline, vertically centered
+- **Color Picker**: Choose any color for the accent bar
+- **Left Padding**: Adjust horizontal alignment with left padding slider
+- **Bar Width**: Configure the thickness of the accent bar
+- **Bar Height Extension**: Control how far the bar extends above and below the text
 
-This extension illustrates the following concepts:
+## Installation
 
-- topic 1
-- topic 2
-- topic 3
+1. Download the `.sppkg` file from the `sharepoint/solution` folder
+2. Upload to your SharePoint App Catalog
+3. Deploy the solution
+4. Add the "Section Headline" web part to any SharePoint page
 
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
+## Configuration
 
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+Open the property pane to configure:
 
-## References
+| Property | Description | Default |
+|----------|-------------|---------|
+| Headline Text | The text to display | "Section Headline" |
+| Accent Bar Color | Color of the vertical bar | #ad3a39 (dark red) |
+| Left Padding (px) | Padding from the left edge | 0 |
+| Bar Width (px) | Width of the accent bar | 6 |
+| Bar Height Extension (px) | How much the bar extends beyond the text | 8 |
 
-- [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
-- [Building for Microsoft teams](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
-- [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
-- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
-- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+## Development
+
+### Prerequisites
+
+- Node.js (v16 or v18 recommended)
+- SPFx development environment
+
+### Build Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+gulp serve
+
+# Bundle for production
+gulp bundle --ship
+
+# Create package
+gulp package-solution --ship
+```
+
+## License
+
+MIT
