@@ -4,6 +4,7 @@ export interface ISectionHeadlineProps {
   fontColor: string;
   fontSize: number;
   leftPadding: number;
+  topOffset: number;
   barWidth: number;
   barHeightExtension: number;
 }

@@ -10,12 +10,12 @@ export default class SectionHeadline extends React.Component<ISectionHeadlinePro
       fontColor,
       fontSize,
       leftPadding,
+      topOffset,
       barWidth,
       barHeightExtension
     } = this.props;
 
     // Calculate bar styles with dynamic values
-    // Use 0 for height extension when value is 0 to avoid visual glitch
     const heightExt = barHeightExtension || 0;
     const barStyle: React.CSSProperties = {
       backgroundColor: barColor || '#ad3a39',
@@ -26,8 +26,10 @@ export default class SectionHeadline extends React.Component<ISectionHeadlinePro
       paddingBottom: heightExt > 0 ? `${heightExt}px` : '0'
     };
 
+    // Container style with padding and top offset (negative margin to move up)
     const containerStyle: React.CSSProperties = {
-      paddingLeft: `${leftPadding || 0}px`
+      paddingLeft: `${leftPadding || 0}px`,
+      marginTop: topOffset ? `-${topOffset}px` : '0'
     };
 
     const textStyle: React.CSSProperties = {

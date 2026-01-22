@@ -20,6 +20,7 @@ export interface ISectionHeadlineWebPartProps {
   fontColor: string;
   fontSize: number;
   leftPadding: number;
+  topOffset: number;
   barWidth: number;
   barHeightExtension: number;
 }
@@ -35,6 +36,7 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
         fontColor: this.properties.fontColor,
         fontSize: this.properties.fontSize,
         leftPadding: this.properties.leftPadding,
+        topOffset: this.properties.topOffset,
         barWidth: this.properties.barWidth,
         barHeightExtension: this.properties.barHeightExtension
       }
@@ -58,7 +60,10 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
       this.properties.fontSize = 28;
     }
     if (this.properties.leftPadding === undefined) {
-      this.properties.leftPadding = 0;
+      this.properties.leftPadding = 1;
+    }
+    if (this.properties.topOffset === undefined) {
+      this.properties.topOffset = 1;
     }
     if (this.properties.barWidth === undefined) {
       this.properties.barWidth = 6;
@@ -139,6 +144,13 @@ export default class SectionHeadlineWebPart extends BaseClientSideWebPart<ISecti
                 }),
                 PropertyPaneSlider('leftPadding', {
                   label: 'Left Padding (px)',
+                  min: 1,
+                  max: 20,
+                  step: 1,
+                  showValue: true
+                }),
+                PropertyPaneSlider('topOffset', {
+                  label: 'Top Offset (px)',
                   min: 1,
                   max: 20,
                   step: 1,
